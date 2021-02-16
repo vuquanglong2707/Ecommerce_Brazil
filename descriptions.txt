@@ -1,0 +1,17 @@
+Tập dữ liêụ thương mại sàn thương mại điện tử Brazil ecommerce theo Olist
+https://www.kaggle.com/olistbr/brazilian-ecommerce
+https://www.kaggle.com/olistbr/brazilian-ecommerce/home
+https://www.kaggle.com/ashikm96/e-commerce-analysis-olist-data
+Các bài toán giải quyết :
+
+Dự đoán bán hàng:
+Với thông tin ngày mua hàng, bạn sẽ có thể dự đoán doanh số bán hàng trong tương lai.
+
+Hiệu suất giao hàng:
+Bạn cũng sẽ có thể thông qua hiệu suất giao hàng và tìm cách tối ưu hóa thời gian giao hàng.
+
+Chất lượng sản phẩm:
+Tận hưởng việc tự mình khám phá các danh mục sản phẩm dễ làm khách hàng hài lòng hơn.
+
+Kỹ thuật tính năng:
+Tạo các tính năng từ tập dữ liệu phong phú này hoặc đính kèm một số thông tin công khai bên ngoài vào tập dữ liệu đó.
