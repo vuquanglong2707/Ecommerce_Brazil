@@ -30,45 +30,40 @@ y_test=pd.read_csv('ytest.csv')
 preds=pd.read_csv('preds.csv')
 
 
-# Evaluate several ml models by training on training set and testing on testing set
+# Đánh giá mô hình machine learning bằng tập train và test
 def evaluate(X_train, X_test, y_train, y_test):
-    # Names of models
+    # Tên mô hình
     model_name_list = ['Linear Regression',
-                      'Random Forest', 'Extra Trees',
-                        'Gradient Boosted','KNeighbors']
-    # Instantiate the models
+                      'Random Forest', 'Extra Trees']
+    # Khởi tạo các model
     model1 = LinearRegression()
     model3 = RandomForestClassifier(n_estimators=50)
     model4 = ExtraTreesClassifier(n_estimators=50)
-    model6 = GradientBoostingClassifier(n_estimators=20)
-    model7= KNeighborsClassifier(n_neighbors = 5)
+
     
     # Dataframe for results
-    results = pd.DataFrame(columns=['r2', 'accuracy','squared_error'], index = model_name_list)
+    results = pd.DataFrame(columns=['r2', 'accuracy',], index = model_name_list)
     
-    # Train and predict with each model
-    for i, model in enumerate([model1, model3, model4, model6,model7]):
+    # Train và dự đoán với từng mô hình
+    for i, model in enumerate([model1, model3, model4]):
    
         model.fit(X_train, y_train)
         predictions = model.predict(X_test)
         # Metrics
-        # The coefficient of determination: 1 is perfect prediction
         r2 = r2_score(y_test,predictions)
         preds=np.where(predictions>0.5,1,0)
         df = pd.DataFrame(preds, columns= ['label'])
         df.to_csv(r'preds.csv', index = False)
-        # The mean squared error
-        squared_error= mean_squared_error(y_test,preds)
 
         accuracy = accuracy_score(y_test,preds)
-        # Insert results into the dataframe
+        # Gán kết quả vào results
         model_name = model_name_list[i]
-        results.loc[model_name, :] = [r2, accuracy,squared_error]
+        results.loc[model_name, :] = [r2, accuracy]
     
     return results
 results=evaluate(X_train, X_test, y_train, y_test)
 print(results)
-####################################Deep learning
+####################################Deep learning #######################
 classifier = Sequential()
 #First Hidden Layer
 classifier.add(Dense(4, activation='relu', kernel_initializer='random_normal', input_dim=8))
