@@ -244,13 +244,13 @@ max_date_in_data= df3['order_purchase_timestamp'].max()
 data_split_date=max_date_in_data-dt.timedelta(days=number_of_days_for_purchase)
 df_full=df3[df3['order_purchase_timestamp']<=data_split_date]
 df_last=df3[df3['order_purchase_timestamp']>data_split_date]
-df_last_180=pd.DataFrame({'customer_unique_id':df3['customer_unique_id'].values.tolist()})
+df_last_180=pd.dataframe({'customer_unique_id':df3['customer_unique_id'].values.tolist()})
 df_last_180=df_last_180.merge(df_last.groupby(['customer_unique_id'])['payment_value'].sum().reset_index(),how='outer',on='customer_unique_id')
-df_last_180.fillna(0,inplace=True)
+df_last_180.fillna(0,inplace=true)
 df_last_180['purchased']=np.where(df_last_180['payment_value']>0, 1,0)
 df_last_180.head()
-print("Tập dữ liệu trong khoảng 180 ngày gần nhất: \n",df_last_180)
-df_last_180.to_csv(r'df_last_180.csv', index = False)
+print("tập dữ liệu trong khoảng 180 ngày gần nhất: \n",df_last_180)
+df_last_180.to_csv(r'df_last_180.csv', index = false)
 
 
 ##################################### Tính đặc trưng ###############################
